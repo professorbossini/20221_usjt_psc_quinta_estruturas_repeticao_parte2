@@ -7,6 +7,13 @@ public class Exercicio2 {
         int palpiteDoUsuario;
         int contador;
         Random gerador = new Random();
+
+        //deixar o usuário escolher o nível de dificuldade
+
+        //se ele quiser nível fácil, o programa mostra as dicas
+
+        //se ele quiser nível difícil, o programa não mostra as dicas
+
         //1 sortear um valor inteiro entre 1 e 10
         numeroOculto = gerador.nextInt(10) + 1;
         //System.out.println(numeroOculto);
@@ -16,12 +23,15 @@ public class Exercicio2 {
         contador = 1;
 
         while(palpiteDoUsuario != numeroOculto){
+            if (palpiteDoUsuario > numeroOculto){
+                JOptionPane.showMessageDialog(null, "Digite algo menor");    
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Digite algo maior");
+            }
             palpiteDoUsuario = Integer.parseInt(JOptionPane.showInputDialog("Escolha outro"));
-            //contador = contador + 1;
-            //contador += 1;
-            //contador++;
-            ++contador;
 
+            ++contador;
         }
         //3 quando o usuário adivinhar, o programa dá parabéns para ele e termina
         JOptionPane.showMessageDialog(null, "Parabéns, o número oculto era mesmo o " + numeroOculto + ". Você tentou " + contador + " vezes.");
